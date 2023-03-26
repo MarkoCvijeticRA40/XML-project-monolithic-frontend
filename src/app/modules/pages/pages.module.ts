@@ -12,11 +12,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatNativeDateModule } from '@angular/material/core';
+import { ErrorStateMatcher, MatNativeDateModule, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 const routes: Routes = [
   {
@@ -37,7 +39,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
+    //AppRoutingModule,
     CommonModule,
     MatTableModule,
     MatFormFieldModule,
@@ -54,10 +56,12 @@ const routes: Routes = [
     MatListModule,
     RouterModule,
     RouterModule.forChild(routes),
-    //MatRadioModule,
-    //MatToolbarModule,
-    //MatDatepickerModule,
+    MatRadioModule,
+    MatDatepickerModule,
     MatToolbarModule
+  ],
+  providers: [
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ]
 })
 export class PagesModule { }
