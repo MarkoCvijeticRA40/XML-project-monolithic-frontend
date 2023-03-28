@@ -15,7 +15,7 @@
     border-width: 3px;
     border-radius: 20px;
     padding: 5px;
-    background-color: rgb(22, 24, 37);
+    background-color: gray;
     
 }
   
@@ -29,7 +29,7 @@ button {
 }
 
 div {
-    background-color: rgb(70, 85, 82);
+    background-color: white;
     padding-top: 10%;
 }
 
@@ -38,6 +38,6 @@ div {
 }
 
 body {
-    background-color: rgb(70, 85, 82);
+    background-color: white;
     height: 100%;
   }
