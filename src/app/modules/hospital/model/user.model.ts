@@ -1,5 +1,5 @@
 export class User {
-    Id: number = 0;
+
     Username: string = '';
     Name: string = '';
     Lastname: string = '';
@@ -10,7 +10,6 @@ export class User {
  
     public constructor(obj?: any) {
         if (obj) {
-            this.Id = obj.Id;
             this.Username = obj.Username;
             this.Name = obj.Name;
             this.Lastname = obj.Lastname;

@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -30,7 +31,7 @@ export class RegisterComponent implements OnInit {
       } 
       else 
       {
-      alert("Password is not confirmed!");
+      alert("You did not confirm your password!");
       }
     }
     else {
@@ -39,9 +40,9 @@ export class RegisterComponent implements OnInit {
   }
 
   private isInputValid(): boolean {
-    return this.user.Username == ''
+    return this.user.Username != ''
          && this.user.Name != '' && this.user.Lastname != '' && this.user.Password != '' 
-         && this.user.Email != '' && this.user.PlaceOfLiving == '' 
+         && this.user.Email != '' && this.user.PlaceOfLiving != '' 
   }
 
   private isPassConfirmed(): boolean {
@@ -68,4 +69,12 @@ export class RegisterComponent implements OnInit {
   requiredConfirmationPasswordControl = new FormControl('', [
     Validators.required,
   ])
+
+  requiredUsernameControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+  requiredPlaceOfLivingControl = new FormControl('', [
+    Validators.required,
+  ]);
 }
