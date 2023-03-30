@@ -1,10 +1,9 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { User } from '../../hospital/model/user.model';
-//import { User } from 'src/app/modules/hospital/model/user.model';
-
 
 @Component({
   selector: 'app-register',
@@ -29,10 +28,10 @@ export class RegisterComponent implements OnInit {
         this.userService.registerUser(this.user).subscribe(res => {
           alert("You have successfully registered!");
         })
-      }
-      else
+      } 
+      else 
       {
-      alert("Password is not confirmed!");
+      alert("You did not confirm your password!");
       }
     }
     else {
@@ -41,9 +40,9 @@ export class RegisterComponent implements OnInit {
   }
 
   private isInputValid(): boolean {
-    return this.user.Username == ''
-         && this.user.Name != '' && this.user.Lastname != '' && this.user.Password != ''
-         && this.user.Email != '' && this.user.PlaceOfLiving == ''
+    return this.user.Username != ''
+         && this.user.Name != '' && this.user.Lastname != '' && this.user.Password != '' 
+         && this.user.Email != '' && this.user.PlaceOfLiving != '' 
   }
 
   private isPassConfirmed(): boolean {
@@ -70,4 +69,12 @@ export class RegisterComponent implements OnInit {
   requiredConfirmationPasswordControl = new FormControl('', [
     Validators.required,
   ])
+
+  requiredUsernameControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+  requiredPlaceOfLivingControl = new FormControl('', [
+    Validators.required,
+  ]);
 }

@@ -1,8 +1,11 @@
 <body class="background-image">
     <form class="container">
-        <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="Username"  [(ngModel)]="user.Username">
-        </mat-form-field><br>
+      <mat-form-field class="example-full-width" style="color: white;">
+        <input matInput placeholder="Username" [formControl]="requiredUsernameControl"[(ngModel)]="user.Username">
+        <mat-error *ngIf="requiredUsernameControl.hasError('required')">
+            Username is <strong>required</strong>
+        </mat-error>
+      </mat-form-field><br>
          
         <mat-form-field class="example-full-width" style="color: white;">
           <input matInput placeholder="Email"  [formControl]="emailFormControl" [(ngModel)]="user.Email">
@@ -43,7 +46,10 @@
           </mat-form-field><br>
 
           <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="Current place of residence" [(ngModel)]="user.PlaceOfLiving">
+            <input matInput placeholder="Place of living" [formControl]="requiredPlaceOfLivingControl"[(ngModel)]="user.PlaceOfLiving">
+            <mat-error *ngIf="requiredPlaceOfLivingControl.hasError('required')">
+                Place of living is <strong>required</strong>
+            </mat-error>
           </mat-form-field><br>
 
           <button mat-stroked-button (click)="registerUser()"> 
