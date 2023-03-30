@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-//import { Flight } from "src/app/model/flight.model";
 import { Flight } from 'src/app/model/flight.model'
 import { FlightService } from 'src/app/service/flight.service';
-import {UserService} from "../../../service/user.service";
 import {Router} from "@angular/router";
 import {FormControl, Validators} from "@angular/forms";
-//import { Flight } from '../../../model/flight.model';
-
 
 @Component({
   selector: 'app-flight-management',
@@ -91,7 +87,7 @@ export class FlightManagementComponent implements OnInit {
     this.flight.departureDate.setHours(0);
     this.flight.departureDate.setSeconds(0);
     this.flight.departureDate.setMilliseconds(0);
-    this.flight.departureDate.setHours(this.hour+2);
+    this.flight.departureDate.setHours(this.hour);
     this.flight.departureDate.setMinutes(this.minute);
   }
   private isInputValid(): boolean {

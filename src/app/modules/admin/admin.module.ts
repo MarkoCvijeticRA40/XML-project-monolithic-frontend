@@ -18,6 +18,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { AdminComponent } from './admin/admin.component';
 import { FlightManagementComponent } from './flight-management/flight-management.component';
+import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
 
 
 
@@ -25,6 +26,8 @@ const routes: Routes = [
   {
     path: '', component: AdminComponent, children: [
       { path: 'flight/management', component: FlightManagementComponent},
+      { path: 'delete/flight', component: DeleteFlightComponent},
+
     ]
   }
 ];
@@ -34,6 +37,7 @@ const routes: Routes = [
   declarations: [
     FlightManagementComponent,
     AdminComponent,
+    DeleteFlightComponent,
 
   ],
   imports: [
