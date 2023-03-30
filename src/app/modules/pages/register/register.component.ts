@@ -3,6 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { User } from '../../hospital/model/user.model';
+//import { User } from 'src/app/modules/hospital/model/user.model';
+
 
 @Component({
   selector: 'app-register',
@@ -27,8 +29,8 @@ export class RegisterComponent implements OnInit {
         this.userService.registerUser(this.user).subscribe(res => {
           alert("You have successfully registered!");
         })
-      } 
-      else 
+      }
+      else
       {
       alert("Password is not confirmed!");
       }
@@ -40,8 +42,8 @@ export class RegisterComponent implements OnInit {
 
   private isInputValid(): boolean {
     return this.user.Username == ''
-         && this.user.Name != '' && this.user.Lastname != '' && this.user.Password != '' 
-         && this.user.Email != '' && this.user.PlaceOfLiving == '' 
+         && this.user.Name != '' && this.user.Lastname != '' && this.user.Password != ''
+         && this.user.Email != '' && this.user.PlaceOfLiving == ''
   }
 
   private isPassConfirmed(): boolean {
