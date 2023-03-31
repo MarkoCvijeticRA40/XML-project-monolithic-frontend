@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import jwtDecode from 'jwt-decode';
+import jwtDecode from "jwt-decode";
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -47,7 +47,7 @@ export class UserService {
   }
 
   getToken() {
-    
+
     const token = localStorage.getItem('jwt');
 
     return token;
