@@ -2,14 +2,14 @@
     <div>
     <form class="container">
         <mat-form-field class="example-full-width" style="color: white;">
-          <input matInput placeholder="Email" name="email">
+          <input [(ngModel)]="data.Email" matInput placeholder="Email" name="email">
         </mat-form-field><br>
     
         <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="Password" type="password" name="password">
+            <input [(ngModel)]="data.Password" matInput placeholder="Password"  name="password">
           </mat-form-field><br>
     
-          <button mat-stroked-button> 
+          <button mat-stroked-button (click)="login()"> 
             Login
         </button>
     </form>
