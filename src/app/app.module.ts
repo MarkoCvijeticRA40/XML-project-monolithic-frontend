@@ -9,10 +9,11 @@ import { PagesModule } from "./modules/pages/pages.module";
 import { AdminModule } from "./modules/admin/admin.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from "@angular/material/table";
+import { HostModule } from "./modules/host/host.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +24,7 @@ import { MatTableModule } from "@angular/material/table";
     PagesModule,
     AdminModule,
     HospitalModule,
+    HostModule,
     MatTableModule,
 
   ],
