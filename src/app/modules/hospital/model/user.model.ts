@@ -1,22 +1,22 @@
 export class User {
 
-    Username: string = '';
-    Name: string = '';
-    Lastname: string = '';
-    Role: any = null;
-    Password: string = '';
-    Email: string = ''; 
-    PlaceOfLiving: string = '';
+    username: string = '';
+    name: string = '';
+    lastname: string = '';
+    role: any = null;
+    password: string = '';
+    email: string = ''; 
+    placeOfLiving: string = '';
  
     public constructor(obj?: any) {
         if (obj) {
-            this.Username = obj.Username;
-            this.Name = obj.Name;
-            this.Lastname = obj.Lastname;
-            this.Role = obj.Role;
-            this.Password = obj.Password;
-            this.Email = obj.Email;
-            this.PlaceOfLiving = obj.PlaceOfLiving;
+            this.username = obj.username;
+            this.name = obj.name;
+            this.lastname = obj.lastname;
+            this.role = obj.role;
+            this.password = obj.password;
+            this.email = obj.email;
+            this.placeOfLiving = obj.placeOfLiving;
         }
     }
 }

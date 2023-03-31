@@ -1,14 +1,14 @@
 <body class="background-image">
     <form class="container">
       <mat-form-field class="example-full-width" style="color: white;">
-        <input matInput placeholder="Username" [formControl]="requiredUsernameControl"[(ngModel)]="user.Username">
+        <input matInput placeholder="Username" [formControl]="requiredUsernameControl"[(ngModel)]="user.username">
         <mat-error *ngIf="requiredUsernameControl.hasError('required')">
             Username is <strong>required</strong>
         </mat-error>
       </mat-form-field><br>
          
         <mat-form-field class="example-full-width" style="color: white;">
-          <input matInput placeholder="Email"  [formControl]="emailFormControl" [(ngModel)]="user.Email">
+          <input matInput placeholder="Email"  [formControl]="emailFormControl" [(ngModel)]="user.email">
           <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
             Please enter a valid email address
           </mat-error>
@@ -18,7 +18,7 @@
         </mat-form-field><br>
     
         <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="Password" type="password" [formControl]="requiredPasswordControl" [(ngModel)]="user.Password">
+            <input matInput placeholder="Password" type="password" [formControl]="requiredPasswordControl" [(ngModel)]="user.password">
             <mat-error *ngIf="requiredPasswordControl.hasError('required')">
                 Password is <strong>required</strong>
             </mat-error>
@@ -32,21 +32,21 @@
           </mat-form-field><br>
     
           <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="Name" [formControl]="requiredNameControl"[(ngModel)]="user.Name">
+            <input matInput placeholder="Name" [formControl]="requiredNameControl"[(ngModel)]="user.name">
             <mat-error *ngIf="requiredNameControl.hasError('required')">
                 Name is <strong>required</strong>
             </mat-error>
           </mat-form-field><br>
     
           <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="Surname" [formControl]="requiredSurnameControl" [(ngModel)]="user.Lastname">
+            <input matInput placeholder="Surname" [formControl]="requiredSurnameControl" [(ngModel)]="user.lastname">
             <mat-error *ngIf="requiredSurnameControl.hasError('required')">
                 Surname is <strong>required</strong>
             </mat-error>
           </mat-form-field><br>
 
           <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="Place of living" [formControl]="requiredPlaceOfLivingControl"[(ngModel)]="user.PlaceOfLiving">
+            <input matInput placeholder="Place of living" [formControl]="requiredPlaceOfLivingControl"[(ngModel)]="user.placeOfLiving">
             <mat-error *ngIf="requiredPlaceOfLivingControl.hasError('required')">
                 Place of living is <strong>required</strong>
             </mat-error>

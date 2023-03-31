@@ -27,17 +27,18 @@ export class LoginComponent implements OnInit {
   public login() {
     this.userService.login(this.data).subscribe(res => {
       this.accessToken = res;
-        //this.userService.getCurrentUser(this.accessToken);
-        alert(this.userService.getCurrentUser(this.accessToken).Email);
-      });
-    //this.userService.getCurrentUser(this.accessToken);
-        
-          /*if(this.currentUser.Role == "Admin") {
-            this.router.navigate(['/admin/flight/management']);
-          }*/
-  } 
+      this.userService.getCurrentUser(this.accessToken).subscribe(user => {
+          this.currentUser = user;
+            if (this.currentUser.role == 'Admin') {
+              this.router.navigate(['/admin/flight/management']);
+            }
+            else if(this.currentUser.role == 'OrdinaryUser') {
+              this.router.navigate(['/host/buyingTickets']);
+            }
+            else {
 
-
-
-
+            }
+        });
+    });
   }
+}

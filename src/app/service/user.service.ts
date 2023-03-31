@@ -48,13 +48,9 @@ export class UserService {
     return this.decoded_token = jwtDecode(this.access_token);
   }
 
-  getCurrentUser(accessToken : string) : User { 
+  getCurrentUser(accessToken : string) : Observable<User> { 
     this.decoded_token = this.decoderToken(accessToken);
-      this.findById(this.decoded_token.id).subscribe(res => {
-        this.currentUser = res;
-          return this.currentUser;
-        });
-    return this.currentUser;
+    return this.findById(this.decoded_token.id);
   }
 
 
