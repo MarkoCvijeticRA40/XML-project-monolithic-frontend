@@ -8,10 +8,11 @@ import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from "@angular/material/table";
+import { HostModule } from "./modules/host/host.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,6 +22,7 @@ import { MatTableModule } from "@angular/material/table";
     MaterialModule,
     PagesModule,
     HospitalModule,
+    HostModule,
     MatTableModule,
   ],
   providers: [],

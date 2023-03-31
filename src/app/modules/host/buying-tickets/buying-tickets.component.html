@@ -1,0 +1,21 @@
+<body class="background-image">
+    <h1>Buying tickets for flight</h1>
+
+    <form class="container">
+        <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Id flight" name="idFlight" [(ngModel)]="idFlight">
+        </mat-form-field><br>
+        <button mat-stroked-button (click)="NaciLetPoId(idFlight)"> 
+            Find Flight
+        </button>
+
+        <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Quantity of tickets" type="number" min="0" max="1000" name="quantityTickets" [(ngModel)]="quantityTickets">
+        </mat-form-field><br>
+
+        <button mat-stroked-button (click)="buyTicket()"> 
+            Submit
+        </button>
+
+    </form> 
+</body>
