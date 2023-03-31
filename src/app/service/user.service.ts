@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import jwtDecode from 'jwt-decode';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { User } from '../modules/hospital/model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UserService {
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   access_token  : any = '';
   decoded_token : any;
-  currentUser!:any;
+  currentUser : User = new User();
 
   constructor(private http: HttpClient) { }
 
@@ -32,26 +33,29 @@ export class UserService {
       console.log('Login success');
       this.access_token = res.content;
       localStorage.setItem("jwt", res.content);
+      return this.access_token;
      }));
   }
 
   logout() {
-    this.currentUser = null;
+    //this.currentUser = null;
     localStorage.removeItem("jwt");
     this.access_token = '';
     //this.router.navigate(['/login']);
   }
 
-  decoderToken(accessToken : string) {
+  decoderToken(accessToken : any) {
     return this.decoded_token = jwtDecode(this.access_token);
   }
 
-  getToken() {
-    
-    const token = localStorage.getItem('jwt');
-
-    return token;
-
+  getCurrentUser(accessToken : string) : User { 
+    this.decoded_token = this.decoderToken(accessToken);
+      this.findById(this.decoded_token.id).subscribe(res => {
+        this.currentUser = res;
+          return this.currentUser;
+        });
+    return this.currentUser;
   }
+
 
 }
