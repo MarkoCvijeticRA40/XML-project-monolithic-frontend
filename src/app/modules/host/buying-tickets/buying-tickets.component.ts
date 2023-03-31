@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Flight } from 'src/app/model/flight.model';
 import { FlightService } from 'src/app/service/flight.service';
 import { UserService } from 'src/app/service/user.service';
-import { Flight } from '../model/flight';
 
 @Component({
   selector: 'app-buying-tickets',
@@ -13,7 +13,7 @@ export class BuyingTicketsComponent implements OnInit {
 
   public idFlight: string = '';
   public quantityTickets: number = 0;
-  public flight: Flight = new Flight('','','',0,0,0,Date);
+  public flight: Flight = new Flight();
 
   constructor(private flightService: FlightService, private userService: UserService, private router: Router) { }
 
