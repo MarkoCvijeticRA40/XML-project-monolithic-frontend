@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import jwtDecode from 'jwt-decode';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -10,13 +11,18 @@ export class UserService {
 
   apiHost: string = 'http://localhost:16177/';
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
-  access_token  : string = '';
+  access_token  : any = '';
+  decoded_token : any;
   currentUser!:any;
 
   constructor(private http: HttpClient) { }
 
   registerUser(user: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'api/User', user , {headers: this.headers});
+  }
+
+  findById(Id: number): Observable<any>{
+    return this.http.get<any>(this.apiHost + "api/User/" + Id, { headers : this.headers});
   }
 
   login(data: any): Observable<any> {
@@ -36,11 +42,16 @@ export class UserService {
     //this.router.navigate(['/login']);
   }
 
-  getToken() {
-    return this.access_token;
+  decoderToken(accessToken : string) {
+    return this.decoded_token = jwtDecode(this.access_token);
   }
 
-  tokenIsPresent() {
-    return this.access_token != undefined && this.access_token != null;
+  getToken() {
+    
+    const token = localStorage.getItem('jwt');
+
+    return token;
+
   }
+
 }
