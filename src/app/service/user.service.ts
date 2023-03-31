@@ -24,6 +24,7 @@ export class UserService {
     .pipe(map((res) => {
       console.log(res);
       console.log('Login success');
+      this.access_token = res.content;
       localStorage.setItem("jwt", res.content);
      }));
   }
