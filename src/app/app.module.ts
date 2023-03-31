@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { MaterialModule } from "./material/material.module";
 import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
+import { AdminModule } from "./modules/admin/admin.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from "@angular/material/table";
 import { HostModule } from "./modules/host/host.module";
@@ -21,9 +22,11 @@ import { HostModule } from "./modules/host/host.module";
     HttpClientModule,
     MaterialModule,
     PagesModule,
+    AdminModule,
     HospitalModule,
     HostModule,
     MatTableModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
