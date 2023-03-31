@@ -13,15 +13,15 @@ import { User } from '../../hospital/model/user.model';
 export class LoginComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
-  
+
   public currentUser: User = new User();
 
   public data: LoginData = new LoginData();
 
   accessToken : any;
-  
+
   ngOnInit(): void {
-  
+
   }
 
   public login() {
@@ -29,9 +29,11 @@ export class LoginComponent implements OnInit {
       this.accessToken = res;
       this.userService.getCurrentUser(this.accessToken).subscribe(user => {
           this.currentUser = user;
+
             if (this.currentUser.role == 'Admin') {
-              this.router.navigate(['/admin/flight/management']);
+              this.router.navigate(['/admin/delete/flight']);
             }
+
             else if(this.currentUser.role == 'OrdinaryUser') {
               this.router.navigate(['/host/buyingTickets']);
             }

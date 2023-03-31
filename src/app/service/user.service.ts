@@ -4,6 +4,7 @@ import jwtDecode from 'jwt-decode';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../modules/hospital/model/user.model';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class UserService {
   decoded_token : any;
   currentUser : User = new User();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   registerUser(user: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'api/User', user , {headers: this.headers});
@@ -38,20 +39,33 @@ export class UserService {
   }
 
   logout() {
-    //this.currentUser = null;
+    this.currentUser = new User();
     localStorage.removeItem("jwt");
     this.access_token = '';
-    //this.router.navigate(['/login']);
+    this.router.navigate(['/pages/login']);
   }
 
   decoderToken(accessToken : any) {
     return this.decoded_token = jwtDecode(this.access_token);
   }
 
-  getCurrentUser(accessToken : string) : Observable<User> { 
+  getCurrentUser(accessToken : string) : Observable<User> {
     this.decoded_token = this.decoderToken(accessToken);
     return this.findById(this.decoded_token.id);
   }
 
 
+
+
+  public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    if (false) {
+      return true;
+    } else {
+      return this.router.parseUrl('pages/login');
+    }
+  }
+
 }
+
+
+
