@@ -73,7 +73,7 @@ export class FlightManagementComponent implements OnInit {
 
     if(this.isInputValid()){
       this.flightService.createFlight(this.flight).subscribe(res => {
-        alert("You have successfully registered!");
+        alert("You have successfully created flight !");
       })
 
       }else{
