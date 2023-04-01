@@ -22,14 +22,14 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerUser() {
-    this.user.Role = "Guest";
+    this.user.role = "OrdinaryUser";
     if (this.isInputValid()) {
       if (this.isPassConfirmed()) {
         this.userService.registerUser(this.user).subscribe(res => {
           alert("You have successfully registered!");
         })
-      } 
-      else 
+      }
+      else
       {
       alert("You did not confirm your password!");
       }
@@ -40,13 +40,13 @@ export class RegisterComponent implements OnInit {
   }
 
   private isInputValid(): boolean {
-    return this.user.Username != ''
-         && this.user.Name != '' && this.user.Lastname != '' && this.user.Password != '' 
-         && this.user.Email != '' && this.user.PlaceOfLiving != '' 
+    return this.user.username != ''
+         && this.user.name != '' && this.user.lastname != '' && this.user.password != ''
+         && this.user.email != '' && this.user.placeOfLiving != ''
   }
 
   private isPassConfirmed(): boolean {
-    return this.user.Password === this.confirmationPass;
+    return this.user.password === this.confirmationPass;
   }
 
   emailFormControl = new FormControl('', [

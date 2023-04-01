@@ -31,7 +31,7 @@
 .example-full-width {
   width: 100%;
 }
-  
+
   table {
     width: 100%;
     background-color: gray
@@ -49,41 +49,41 @@
     padding-top: 20px;
     padding-left: 20px;
     font-size: 20px;
-  
+
   }
-  
+
   .cell-center {
     text-align: center;
   }
-  
+
   .clickable:hover {
     font-weight: bold;
     cursor: pointer;
   }
-  
+
   .add-button {
     margin: 10px 20px 10px 10px;
     color: black;
     background-color: #edece5;
     float: right;
   }
-  
+
   .table-header {
     display: flex;
   }
-  
+
   p {
     float: left;
     margin-right: auto;
   }
-  
+
   .field {
     width: 50%;
     margin: auto;
     background-color: rgb(160, 159, 159);
     padding: 10px;
   }
-  
+
   .search {
     width: 40%;
     margin-left: 157px;
@@ -91,7 +91,7 @@
     display: flex;
     background-color: rgb(160, 159, 159);
   }
-  
+
   .filter {
     width: 28%;
     margin-left: 20px;
@@ -99,7 +99,7 @@
     display: flex;
     background-color: rgb(160, 159, 159);
   }
-  
+
   .button {
     width: 100%;
     margin-left: 90px;
@@ -109,7 +109,7 @@
     background-color: rgb(160, 159, 159);
     border-radius: 10px;
   }
-  
+
   .line {
     margin-left: 10px;
     margin-right: 10px;
@@ -117,18 +117,22 @@
     margin-bottom: auto;
     background-color: rgb(160, 159, 159);;
   }
-  
+
   .filter-search {
     display: flex;
     margin-left: 150px;
     margin-right: 150px;
   }
-  
+
   .nameBtn {
     margin-left: 70px;
   }
-  
+
   .gradeBtn {
     margin-left: 670px;
   }
-  
+
+.logoutButton {
+  position: absolute;
+  right: 15px;
+}
