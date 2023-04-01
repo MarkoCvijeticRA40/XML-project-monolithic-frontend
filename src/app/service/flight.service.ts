@@ -8,7 +8,7 @@ import {Flight} from "../model/flight.model";
 })
 export class FlightService {
 
-  apiHost: string = 'http://localhost:16177/';
+  apiHost: string = 'http://localhost:5000/';
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) { }
