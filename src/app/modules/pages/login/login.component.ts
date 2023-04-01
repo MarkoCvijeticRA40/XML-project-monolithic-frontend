@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
             }
 
             else if(this.currentUser.role == 'OrdinaryUser') {
-              this.router.navigate(['/host/buyingTickets']);
+              this.router.navigate(['/host/buyingTickets/forFlight/:id']);
             }
             else {
             }
