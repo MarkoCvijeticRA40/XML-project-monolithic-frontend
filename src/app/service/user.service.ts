@@ -49,14 +49,16 @@ export class UserService {
     return this.decoded_token = jwtDecode(this.access_token);
   }
 
-  getCurrentUser(accessToken : string) : Observable<User> {
-    this.decoded_token = this.decoderToken(accessToken);
-    return this.findById(this.decoded_token.id);
+  public getToken() {
+    return localStorage.getItem('jwt');
   }
 
-
-
-
+  getCurrentUser() : Observable<User> {
+    this.access_token = this.getToken();
+    this.decoded_token = this.decoderToken(this.access_token);
+    return this.findById(this.decoded_token.id);
+  }
+  
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     if (false) {
       return true;
@@ -64,7 +66,6 @@ export class UserService {
       return this.router.parseUrl('pages/login');
     }
   }
-
 }
 
 
