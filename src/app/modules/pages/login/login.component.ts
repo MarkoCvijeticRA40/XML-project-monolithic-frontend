@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   public login() {
     this.userService.login(this.data).subscribe(res => {
       this.accessToken = res;
-      this.userService.getCurrentUser(this.accessToken).subscribe(user => {
+      this.userService.getCurrentUser().subscribe(user => {
           this.currentUser = user;
 
             if (this.currentUser.role == 'Admin') {
@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/host/buyingTickets']);
             }
             else {
-
             }
         });
     });
