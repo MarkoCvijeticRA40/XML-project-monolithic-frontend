@@ -27,7 +27,6 @@ const routes: Routes = [
     path: '', component: AdminComponent, children: [
       { path: 'flight/management', component: FlightManagementComponent},
       { path: 'delete/flight', component: DeleteFlightComponent},
-
     ]
   }
 ];
