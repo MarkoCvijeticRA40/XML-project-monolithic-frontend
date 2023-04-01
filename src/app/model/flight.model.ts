@@ -7,7 +7,7 @@ export class Flight {
   capacity: number = 0;
   occupancy: number = 0;
   departureDate: Date = new Date()
-  
+
   constructor(obj?: any) {
     if (obj) {
       this.id = obj.id;

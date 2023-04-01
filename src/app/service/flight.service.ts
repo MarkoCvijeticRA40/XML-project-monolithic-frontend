@@ -25,12 +25,12 @@ export class FlightService {
     return this.http.get<Flight>(this.apiHost + 'api/flight/' + id, {headers: this.headers});
   }
   
-   deleteFlight(id: any): Observable<any> {
+  deleteFlight(id: any): Observable<any> {
     return this.http.delete<any>(this.apiHost + 'api/flight/' + id, {headers: this.headers});
   }
 
-  updateFlightbuyTicket(flight: any, idFlight: string, quantityTickets: number): Observable<any> {
-    return this.http.put<any>(this.apiHost + 'api/flight/' + idFlight + "/" + quantityTickets, flight, {headers: this.headers});
+  updateFlight(flight: any): Observable<any> {
+    return this.http.put<any>(this.apiHost + 'api/flight/' + flight.id, flight, {headers: this.headers});
   }
 
 }
