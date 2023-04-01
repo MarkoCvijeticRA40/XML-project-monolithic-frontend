@@ -1,9 +1,13 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <button mat-icon-button>
-        <mat-icon (click)="sidebarmenu.toggle()">menu</mat-icon>
-      </button>
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidebarmenu.toggle()">menu</mat-icon>
+    </button>
+
+    <button class="home" (click)="home()">
       <h2>Host</h2>
+    </button>
+
       <button mat-icon-button class = "logoutButton">
         <mat-icon (click)="logout()">logout</mat-icon>
       </button>
@@ -13,6 +17,7 @@
   <mat-sidenav-container>
     <mat-sidenav #sidebarmenu>
       <mat-nav-list>
+        <a mat-list-item [routerLink]="'availableFlights'"> Home </a>
         <a mat-list-item [routerLink]="'buyingTickets'"> Buying Tickets </a>
         <a mat-list-item [routerLink]="'searchFlights'"> Search Flights </a>
       </mat-nav-list>

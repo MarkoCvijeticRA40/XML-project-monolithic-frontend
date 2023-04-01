@@ -42,3 +42,7 @@ body {
     background-color: white;
     height: 50%;
   }
+  
+  .container{
+    height: 550px;
+}

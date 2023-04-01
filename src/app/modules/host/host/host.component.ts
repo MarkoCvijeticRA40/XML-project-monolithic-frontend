@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { Flight } from 'src/app/model/flight.model';
+import { FlightService } from 'src/app/service/flight.service';
 import {UserService} from "../../../service/user.service";
+
 
 @Component({
   selector: 'app-host',
@@ -7,11 +12,15 @@ import {UserService} from "../../../service/user.service";
   styleUrls: ['./host.component.css']
 })
 export class HostComponent implements OnInit {
-
-
-  constructor(private userService: UserService) { }
+  
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.router.navigate(['/availableFlights']);
+  }
+
+  public home(){
+    this.ngOnInit();
   }
 
   logout(){

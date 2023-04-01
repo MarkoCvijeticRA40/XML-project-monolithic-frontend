@@ -1,21 +1,21 @@
 <body class="background-image">
-    <h1>Buying tickets for flight</h1>
 
-    <form class="container">
-        <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="Id flight" name="idFlight" [(ngModel)]="idFlight">
-        </mat-form-field><br>
-        <button mat-stroked-button (click)="NaciLetPoId(idFlight)"> 
-            Find Flight
-        </button>
+    <form>
+        <h1><b>Buying tickets for flight</b></h1>
 
-        <mat-form-field class="example-full-width" style="color: white;">
+        <mat-form-field class="example-full-width">
             <input matInput placeholder="Quantity of tickets" type="number" min="0" max="1000" name="quantityTickets" [(ngModel)]="quantityTickets">
         </mat-form-field><br>
 
-        <button mat-stroked-button (click)="buyTicket()"> 
-            Submit
-        </button>
+        <div mat-dialog-actions style="width: 50%; float:left">
+            <button mat-button mat-dialog-close (click)="back()">Cancel</button>
+        </div>
+         
+         <div mat-dialog-actions style="width: 50%; float:right" align="end">
+            <button mat-button mat-dialog-close cdkFocusInitial (click)="buyTicket()">Submit</button>
+        </div>
 
     </form> 
 </body>
+
+

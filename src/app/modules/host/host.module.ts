@@ -14,15 +14,22 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 import { HostComponent } from './host/host.component';
 import { BuyingTicketsComponent } from './buying-tickets/buying-tickets.component';
 import { SearchFlightsComponent } from './search-flights/search-flights.component';
+import { TableAvailableFlightsComponent } from './table-available-flights/table-available-flights.component';
+import { TicketInformationComponent } from './ticket-information/ticket-information.component';
+
 
 const routes: Routes = [
   { 
     path: '', component: HostComponent, children: [
-    { path: 'buyingTickets', component: BuyingTicketsComponent },
+    { path: 'availableFlights', component: TableAvailableFlightsComponent },
+    { path: 'buyingTickets/forFlight/:id', component: BuyingTicketsComponent },
     { path: 'searchFlights', component: SearchFlightsComponent },
 
     ]
@@ -33,7 +40,9 @@ const routes: Routes = [
   declarations: [
     BuyingTicketsComponent,
     HostComponent,
-    SearchFlightsComponent
+    SearchFlightsComponent,
+    TableAvailableFlightsComponent,
+    TicketInformationComponent,
   ],
   imports: [
     CommonModule,
@@ -51,6 +60,7 @@ const routes: Routes = [
     MatRadioModule,
     MatDatepickerModule,
     MatToolbarModule,
+    MatDialogModule,
     RouterModule.forChild(routes)
   ],
    exports: [ RouterModule ]

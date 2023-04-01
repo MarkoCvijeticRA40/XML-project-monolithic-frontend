@@ -1,0 +1,27 @@
+<body class="background-image">
+
+    <form>
+        <h1><b>Ticket information:</b></h1>
+
+        <mat-form-field >
+            <input class="inputPolje" placeholder="Place of departure:" wrap="soft" name="departure" matInput disabled>{{karta.departure}}
+        </mat-form-field>
+
+        <mat-form-field >
+            <input class="inputPolje" placeholder="Place of destination:" wrap="soft" name="destination" matInput disabled>{{karta.destination}}
+        </mat-form-field>
+
+        <mat-form-field >
+            <input class="inputPolje" placeholder="Price:" wrap="soft" name="price" matInput disabled>{{karta.price}}
+        </mat-form-field>
+
+        <mat-form-field >
+            <input class="inputPolje" placeholder="Departure date:" name="departureDate" matInput disabled>{{ karta.departureDate | date : 'short' }}
+        </mat-form-field>
+         
+         <div mat-dialog-actions align="end">
+            <button mat-button mat-dialog-close cdkFocusInitial (click)="finish()">Finish</button>
+        </div>
+
+    </form> 
+</body>
