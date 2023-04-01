@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { RoleGuardService } from "./service/role-guard.service";
 
 const routes: Routes = [
   {
@@ -8,12 +9,13 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
-
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+    canActivate:[RoleGuardService], data : {expectedRole : 'Admin'}
   },
   {
     path: 'host',
-    loadChildren: () => import('./modules/host/host.module').then(m => m.HostModule)
+    loadChildren: () => import('./modules/host/host.module').then(m => m.HostModule),
+    canActivate:[RoleGuardService], data : {expectedRole : 'OrdinaryUser'}
   }
 ];
 
