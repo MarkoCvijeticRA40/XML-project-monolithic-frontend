@@ -5,7 +5,7 @@
     border-radius: 3px;
     border: #DCD6CC 1px solid;
     background-color: white;
-    border-color:  rgb(101, 190, 174);;
+    border-color:  rgb(138, 43, 226);;
     border-width: 3px;
     border-radius: 20px;
     padding: 5px;
@@ -15,5 +15,6 @@
 
 button {
     color: white;
-    background-color: rgb(101, 190, 174);
+    background-color: rgb(138, 43, 226);
+    border-radius: 20px;
 }

@@ -58,6 +58,12 @@ export class UserService {
     this.decoded_token = this.decoderToken(this.access_token);
     return this.findById(this.decoded_token.id);
   }
+
+  public getCurrentUserId() {
+    this.access_token = this.getToken();
+    this.decoded_token = this.decoderToken(this.access_token);
+    return this.decoded_token.id;
+  }
   
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     if (false) {

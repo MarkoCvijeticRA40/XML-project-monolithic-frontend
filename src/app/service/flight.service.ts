@@ -32,5 +32,5 @@ export class FlightService {
   updateFlight(flight: any): Observable<any> {
     return this.http.put<any>(this.apiHost + 'api/flight/' + flight.id, flight, {headers: this.headers});
   }
-
+  
 }
