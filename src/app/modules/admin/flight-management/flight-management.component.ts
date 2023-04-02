@@ -63,10 +63,7 @@ export class FlightManagementComponent implements OnInit {
 
   ];
 
-
   constructor(private flightService: FlightService, private router: Router) { }
-
-
 
   createFlight(){
     this.setTime()

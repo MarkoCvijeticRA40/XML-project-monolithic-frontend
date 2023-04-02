@@ -32,15 +32,6 @@
     </mat-error>
   </mat-form-field><br>
 
-<!--
-  <mat-form-field class="example-full-width" style="color: white;">
-    <input matInput placeholder="Occupancy " [formControl]="requiredOccupancy" [(ngModel)]="flight.occupancy" pattern="[0-9]+(\.[0-9]+)?" >
-    <mat-error *ngIf="requiredOccupancy.hasError('required')">
-      Occupancy <strong>required</strong>
-    </mat-error>
-  </mat-form-field><br>
--->
-
   <mat-form-field class="example-full-width" style="color: white;">
 
     <input matInput [matDatepicker]="picker"  [min]="tomorrowDate" placeholder="Departure date and time" [formControl]="requiredDepartureDateControl" [(ngModel)]="flight.departureDate">
@@ -52,7 +43,7 @@
   </mat-form-field>
   <br>
   <mat-form-field class="example-full-width" style="color: white;">
-    <mat-label> Destination time hours </mat-label>
+    <mat-label> Departure time hours </mat-label>
     <mat-select [(ngModel)]="hour" [ngModelOptions]="{standalone: true}" >
       <mat-option *ngFor="let hour of hours" [value]="hour.value" >
         {{hour.viewValue}}
@@ -62,7 +53,7 @@
   </mat-form-field><br>
 
   <mat-form-field class="example-full-width" style="color: white;">
-    <mat-label> Destination time minutes </mat-label>
+    <mat-label> Departure time minutes </mat-label>
     <mat-select [(ngModel)]="minute" [ngModelOptions]="{standalone: true}" >
       <mat-option *ngFor="let minute of minutes" [value]="minute.value" >
         {{minute.viewValue}}

@@ -39,8 +39,14 @@ export class UnauthorComponent implements OnInit {
     })
   }
 
+  private isInputValid(): boolean {
+    return this.departure != ''  &&  this.destination != '' &&  this.occupancy  > 0;
+  }
+
   onSearch() {
   
+      if(this.isInputValid())
+      {
       this.searchedFlights = [];
       this.searchPerformed = true;
   
@@ -54,8 +60,11 @@ export class UnauthorComponent implements OnInit {
         this.displayedColumns = ['departure' , 'destination' , 'price' , 'capacity' , 'occupancy' , 'departureDate' , 'totalCost'];
         this.dataSource.data = this.searchedFlights;
         console.log(this.searchedFlights);
-        
-  
       })
+      }
+      else 
+      {
+        alert("You must fill in all fields!");
+      }
     }
 }
