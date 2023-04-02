@@ -37,6 +37,10 @@ export class TableAvailableFlightsComponent implements OnInit {
     this.loadFLights();
   }
 
+  private isInputValid(): boolean {
+    return this.departure != ''  &&  this.destination != '' &&  this.occupancy  > 0;
+  }
+
   public loadFLights(){
     this.flightService.getFlights().subscribe(res => {
       this.dataSource.data = res
@@ -57,7 +61,10 @@ export class TableAvailableFlightsComponent implements OnInit {
 
   onSearch() {
   
-      this.searchedFlights = [];
+    if(this.isInputValid())
+    {
+    
+    this.searchedFlights = [];
       this.searchPerformed = true;
   
       this.flightService.getAllFlightBySearch(this.departureDate, this.departure,this.destination, this.occupancy).subscribe(res => {
@@ -74,8 +81,10 @@ export class TableAvailableFlightsComponent implements OnInit {
   
       })
     }
-}
-    
-  
+    else {
+      alert("You must fill in all fields!");
+    }
+  }   
+} 
 
 
