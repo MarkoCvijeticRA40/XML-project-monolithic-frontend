@@ -15,4 +15,9 @@ export class PagesComponent implements OnInit {
     this.router.navigate(['/unauthorized']);
   }
 
+  public home(){
+    this.ngOnInit();
+  }
+
+
 }

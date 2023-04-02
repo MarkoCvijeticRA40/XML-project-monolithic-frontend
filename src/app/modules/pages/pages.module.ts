@@ -19,16 +19,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { UnauthorizedComponent } from '../unauthorized/unauthorized/unauthorized.component';
+import { UnauthorComponent } from './unauthor/unauthor.component';
 
 const routes: Routes = [
   {
-
     path: '', component: PagesComponent, children: [
       { path: 'home', component: HomeComponent },
       { path: 'register/user', component: RegisterComponent},
       { path: 'login', component: LoginComponent},
-      { path: 'unauthorized', component: UnauthorizedComponent}
+      { path: 'unauthorized', component: UnauthorComponent},
 
     ]
   }
@@ -40,6 +39,7 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     PagesComponent,
+    UnauthorComponent
 
   ],
   imports: [

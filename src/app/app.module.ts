@@ -10,13 +10,11 @@ import { AdminModule } from "./modules/admin/admin.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from "@angular/material/table";
 import { HostModule } from "./modules/host/host.module";
-import { UnauthorizedComponent } from './modules/unauthorized/unauthorized/unauthorized.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UnauthorizedComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +27,7 @@ import { FormsModule } from '@angular/forms';
     HospitalModule,
     HostModule,
     MatTableModule,
-    FormsModule
-
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

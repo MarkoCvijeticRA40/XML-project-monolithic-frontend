@@ -3,9 +3,9 @@
     margin: auto;
     margin-top: 20px;
     border-radius: 3px;
-    border: #DCD6CC 1px solid;
+    border: #DCD6CC 2px slategray;
     background-color: white;
-    border-color:  rgb(138, 43, 226);;
+    border-color:  rgb(4, 92, 113);
     border-width: 3px;
     border-radius: 20px;
     padding: 5px;
@@ -15,6 +15,6 @@
 
 button {
     color: white;
-    background-color: rgb(138, 43, 226);
+    background-color: rgb(4, 92, 113);
     border-radius: 20px;
 }

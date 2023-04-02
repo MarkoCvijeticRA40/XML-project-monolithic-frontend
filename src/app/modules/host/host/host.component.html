@@ -4,11 +4,12 @@
       <mat-icon (click)="sidebarmenu.toggle()">menu</mat-icon>
     </button>
 
-    <button class="home" (click)="home()">
+    <button  (click)="home()">
       <h2>Host</h2>
     </button>
+    
 
-      <button mat-icon-button class = "logoutButton">
+      <button mat-icon-button class = "logoutButton" matTooltip="Log out">
         <mat-icon (click)="logout()">logout</mat-icon>
       </button>
     </mat-toolbar-row>

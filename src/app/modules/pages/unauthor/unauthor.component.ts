@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Flight } from 'src/app/model/flight.model';
 import { FlightService } from 'src/app/service/flight.service';
-import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-unauthorized',
-  templateUrl: './unauthorized.component.html',
-  styleUrls: ['./unauthorized.component.css']
+  selector: 'app-unauthor',
+  templateUrl: './unauthor.component.html',
+  styleUrls: ['./unauthor.component.css']
 })
-export class UnauthorizedComponent implements OnInit {
+export class UnauthorComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<Flight>();
   public displayedColumns = ['departure' , 'destination' , 'price' , 'capacity' , 'occupancy' , 'departureDate'];
@@ -60,4 +59,3 @@ export class UnauthorizedComponent implements OnInit {
       })
     }
 }
-    
