@@ -18,6 +18,14 @@ table {
 
 }
 
+h2{
+  color: white;
+  font-size: 26px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+
 .table-title {
   padding-bottom: 20px;
   padding-top: 20px;

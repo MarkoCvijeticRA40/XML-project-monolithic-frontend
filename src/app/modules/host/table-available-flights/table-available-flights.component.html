@@ -1,19 +1,21 @@
 <div class="container">
-  <form (submit)="onSearch()" class="search-form">
-    <label for="date">Date:</label>
-    <input type="date" name="date" [(ngModel)]="departureDate">
-  
-    <label for="departure">Departure location:</label>
-    <input type="text" name="departure" [(ngModel)]="departure">
-  
-    <label for="arrival">Arrival location:</label>
-    <input type="text" name="arrival" [(ngModel)]="destination">
-  
-    <label for="numPassengers">Number of passengers:</label>
-    <input type="number" name="numPassengers" [(ngModel)]="occupancy">
-  
-    <button type="submit" class="searchButton">Search</button>
+
+    <form (submit)="onSearch()" class="search-form">
+      <label for="date">Date:</label>
+      <input type="date" name="date" [(ngModel)]="departureDate">
+    
+      <label for="departure">Departure location:</label>
+      <input type="text" name="departure" [(ngModel)]="departure">
+    
+      <label for="arrival">Arrival location:</label>
+      <input type="text" name="arrival" [(ngModel)]="destination">
+    
+      <label for="numPassengers">Number of passengers:</label>
+      <input type="number" name="numPassengers" [(ngModel)]="occupancy">
+    
+      <button type="submit" class="searchButton">Search</button>
   </form>
+
     <h2>Available flights: </h2>
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="departure">
@@ -64,6 +66,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
   </div>
   
   
