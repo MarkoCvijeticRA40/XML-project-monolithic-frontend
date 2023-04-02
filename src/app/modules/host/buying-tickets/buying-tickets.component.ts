@@ -7,6 +7,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { TableAvailableFlightsComponent } from '../table-available-flights/table-available-flights.component';
 import { TicketInformationComponent } from '../ticket-information/ticket-information.component';
+import { TicketService } from 'src/app/service/ticket.service';
+import { Ticket } from 'src/app/model/ticket';
+import { User } from '../../hospital/model/user.model';
 
 @Component({
   selector: 'app-buying-tickets',
@@ -20,12 +23,15 @@ export class BuyingTicketsComponent implements OnInit {
   public flight: Flight = new Flight();
   public flightPomocni: Flight = new Flight();
   public flightId: any;
+  public id: any;
+  public ticket: Ticket = new Ticket();
+  public currentUser: User = new User();
 
-  constructor(private flightService: FlightService, private route: ActivatedRoute, private userService: UserService, private router: Router,
+  constructor(private flightService: FlightService, private route: ActivatedRoute, private ticketService: TicketService, private userService: UserService, private router: Router,
     public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
+      this.route.params.subscribe((params: Params) => {
 
       this.flightService.getFlight(this.flightId).subscribe(res => {
         this.flight = new Flight(res);
@@ -33,6 +39,8 @@ export class BuyingTicketsComponent implements OnInit {
       })
 
     });
+
+    this.id = this.userService.getCurrentUserId();
   }
 
   public buyTicket(): void{
@@ -45,6 +53,12 @@ export class BuyingTicketsComponent implements OnInit {
 
       this.occupancyOld = this.flight.occupancy;
       this.flight.occupancy = this.occupancyOld + this.quantityTickets
+
+      this.ticket.userId = this.id;
+      this.ticket.flightId = this.flight.id;
+
+      this.ticketService.createTicket(this.ticket).subscribe(res => {
+      })
 
       this.flightService.updateFlight(this.flight).subscribe(res => {
         //window.confirm("Flight tickets have been successfully purchased!");
