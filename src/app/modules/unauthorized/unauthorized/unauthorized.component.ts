@@ -1,23 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Flight } from 'src/app/model/flight.model';
 import { FlightService } from 'src/app/service/flight.service';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { BuyingTicketsComponent } from '../buying-tickets/buying-tickets.component';
-import { MatDialogModule } from '@angular/material/dialog';
-
-
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-table-available-flights',
-  templateUrl: './table-available-flights.component.html',
-  styleUrls: ['./table-available-flights.component.css']
+  selector: 'app-unauthorized',
+  templateUrl: './unauthorized.component.html',
+  styleUrls: ['./unauthorized.component.css']
 })
-export class TableAvailableFlightsComponent implements OnInit {
+export class UnauthorizedComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<Flight>();
-  public displayedColumns = ['departure' , 'destination' , 'price' , 'capacity' , 'occupancy' , 'departureDate' , 'buyTickets'];
+  public displayedColumns = ['departure' , 'destination' , 'price' , 'capacity' , 'occupancy' , 'departureDate'];
   departure : string = '';
   destination : string = '';
   occupancy: number = 0;
@@ -43,18 +40,6 @@ export class TableAvailableFlightsComponent implements OnInit {
     })
   }
 
-  public buyTicketsForFlight(id: string) {
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.id = "modal-component";
-    dialogConfig.height = "350px";
-    dialogConfig.width = "600px";
-
-    const modalDialog = this.dialog.open(BuyingTicketsComponent, dialogConfig);
-    modalDialog.componentInstance.flightId = id;
-    
-  }
-
   onSearch() {
   
       this.searchedFlights = [];
@@ -67,7 +52,7 @@ export class TableAvailableFlightsComponent implements OnInit {
           this.searchedFlights.push(app);
         });
 
-        this.displayedColumns = ['departure' , 'destination' , 'price' , 'capacity' , 'occupancy' , 'departureDate' , 'totalCost', 'buyTickets'];
+        this.displayedColumns = ['departure' , 'destination' , 'price' , 'capacity' , 'occupancy' , 'departureDate' , 'totalCost'];
         this.dataSource.data = this.searchedFlights;
         console.log(this.searchedFlights);
         
@@ -76,6 +61,3 @@ export class TableAvailableFlightsComponent implements OnInit {
     }
 }
     
-  
-
-
