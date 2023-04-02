@@ -11,6 +11,16 @@ table {
     width: 100%;
 }
 
+.home {
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+  }
+
+.mat-toolbar {
+    background-color: rgb(4, 92, 113);
+  }
+
 .table-title {
     padding-bottom: 20px;
     padding-top: 20px;

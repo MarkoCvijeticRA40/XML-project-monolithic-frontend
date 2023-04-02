@@ -16,10 +16,12 @@ export class TakenFlightsComponent implements OnInit {
   public id: any;
   public flightId: any;
   public tickets: Ticket[] = [];
+  public ticketsPomocni: Ticket[] = [];
+
   public flights: Flight[] = [];
   public flight: Flight = new Flight();
   public dataSource = new MatTableDataSource<Flight>();
-  public displayedColumns = ['departure' , 'destination' , 'price' , 'departureDate'];
+  public displayedColumns = ['picture', 'departure' , 'destination' , 'price' , 'departureDate'];
 
 
   constructor(private userService: UserService, private flightService: FlightService, private ticketService: TicketService) { }
@@ -27,6 +29,10 @@ export class TakenFlightsComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.userService.getCurrentUserId();
 
+    this.loadTickets2();
+  }
+
+  public loadTickets2(){
     this.ticketService.getTickets().subscribe(res => {
       let result = Object.values(JSON.parse(JSON.stringify(res)));
       result.forEach((element: any) => {
@@ -35,24 +41,22 @@ export class TakenFlightsComponent implements OnInit {
           this.tickets.push(app);
         }
       });
-
+    
+      console.log(this.tickets);
+    
+      
+      const flightRequests = this.tickets.map((element: any) => {
+        return this.flightService.getFlight(element.flightId).toPromise().then(res => {
+          const flight = new Flight(res);
+          this.flights.push(flight);
+        });
+      });
+      Promise.all(flightRequests).then(() => {
+        console.log(this.flights);
+        this.dataSource.data = this.flights;
+      });
+      
     })
-    console.log(this.tickets);
-  }
-
-  public loadFLights(){
-
-    this.tickets.forEach((element: any) => {
-      this.flightId = element.flightId;
-
-      this.flightService.getFlight(element.flightId).subscribe(res => {
-        this.flight = new Flight(res);
-        this.flights.push(this.flight);
-      })
-    });
-
-    this.dataSource.data = this.flights;
-
   }
 
 }

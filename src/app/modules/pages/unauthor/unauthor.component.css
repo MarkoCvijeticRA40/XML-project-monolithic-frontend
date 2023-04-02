@@ -3,21 +3,26 @@
     margin: auto;
     margin-top: 20px;
     border-radius: 3px;
-    border: #DCD6CC 1px solid;
+    border: #DCD6CC 2px slategray;
     background-color: white;
-    border-color:  rgb(138, 43, 226);;
+    border-color:  rgb(35, 104, 233);
     border-width: 3px;
     border-radius: 20px;
     padding: 5px;
-    background-color: gray;
+    background-color: rgb(153, 189, 198);
     display: flex;
     flex-direction: column;
   }
   
   table {
     width: 100%;
-    background-color: gray
+    background-color: rgb(153, 189, 198);
   
+  }
+
+  td{
+    font-size: 16px;
+
   }
 
   .tickets{
@@ -37,6 +42,11 @@
   .cell-center {
     text-align: center;
   }
+
+  th{
+    font-size: 14px;
+    color: black;
+  }
   
   .clickable:hover {
     font-weight: bold;
@@ -52,6 +62,13 @@
   
   .table-header {
     display: flex;
+  }
+
+  h2{
+    color: white;
+    font-size: 26px;
+    margin-top: 10px;
+    margin-left: 20px;
   }
   
   p {
@@ -144,7 +161,7 @@
 
   .searchButton {
     color: white;
-    background-color: rgb(138, 43, 226);;
+    background-color: rgb(4, 92, 113);
     border-radius: 20px;
   }
 
