@@ -32,6 +32,7 @@ const routes: Routes = [
     { path: 'buyingTickets/forFlight/:id', component: BuyingTicketsComponent },
     { path: 'takenFlights', component: TakenFlightsComponent },
 
+
     ]
   }
 ];

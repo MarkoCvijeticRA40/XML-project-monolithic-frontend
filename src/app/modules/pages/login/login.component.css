@@ -1,9 +1,4 @@
-.example-form {
-    min-width: 250px;
-    max-width: 500px;
-    width: 100%;
-    
-  }
+
 
   .container {
     width: 600px;
@@ -22,10 +17,19 @@
     text-align: center;
     
 }
+
+.example-form {
+  min-width: 250px;
+  max-width: 500px;
+  width: 100%;
   
-  .example-full-width {
-    width: 100%;
-  }
+}
+
+
+.example-full-width {
+  width: 100%;
+}
+
 
 button {
     color: white;
@@ -34,7 +38,6 @@ button {
 }
 
 div {
-    background-color: white;
     padding-top: 10%;
 }
 
@@ -43,6 +46,5 @@ div {
 }
 
 body {
-    background-color: white;
     height: 100%;
   }
