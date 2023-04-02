@@ -37,6 +37,7 @@ export class FlightService {
     return this.http.get<Flight[]>(this.apiHost + 'api/flight/' + searchDate + '/' + searchDeparture + '/' 
     + searchDestination + '/' + searchPassinger , {headers: this.headers});
     }
+
   
 }
 

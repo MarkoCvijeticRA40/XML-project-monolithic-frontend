@@ -20,9 +20,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { HostComponent } from './host/host.component';
 import { BuyingTicketsComponent } from './buying-tickets/buying-tickets.component';
-import { SearchFlightsComponent } from './search-flights/search-flights.component';
 import { TableAvailableFlightsComponent } from './table-available-flights/table-available-flights.component';
 import { TicketInformationComponent } from './ticket-information/ticket-information.component';
+import { TakenFlightsComponent } from './taken-flights/taken-flights.component';
 
 
 const routes: Routes = [
@@ -30,7 +30,7 @@ const routes: Routes = [
     path: '', component: HostComponent, children: [
     { path: 'availableFlights', component: TableAvailableFlightsComponent },
     { path: 'buyingTickets/forFlight/:id', component: BuyingTicketsComponent },
-    { path: 'searchFlights', component: SearchFlightsComponent },
+    { path: 'takenFlights', component: TakenFlightsComponent },
 
     ]
   }
@@ -40,9 +40,9 @@ const routes: Routes = [
   declarations: [
     BuyingTicketsComponent,
     HostComponent,
-    SearchFlightsComponent,
     TableAvailableFlightsComponent,
     TicketInformationComponent,
+    TakenFlightsComponent,
   ],
   imports: [
     CommonModule,
