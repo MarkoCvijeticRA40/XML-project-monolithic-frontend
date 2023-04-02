@@ -18,6 +18,12 @@ export class TableAvailableFlightsComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<Flight>();
   public displayedColumns = ['departure' , 'destination' , 'price' , 'capacity' , 'occupancy' , 'departureDate' , 'buyTickets'];
+  departure : string = '';
+  destination : string = '';
+  occupancy: number = 0;
+  departureDate: Date = new Date();
+  searchedFlights: Flight[] = [];
+
 
   constructor(private flightService: FlightService, private router: Router, public dialog: MatDialog) { }
 
@@ -47,6 +53,25 @@ export class TableAvailableFlightsComponent implements OnInit {
     modalDialog.componentInstance.flightId = id;
     
   }
+
+  onSearch() {
+  
+      this.searchedFlights = [];
+  
+      this.flightService.getAllFlightBySearch(this.departureDate, this.departure,this.destination, this.occupancy).subscribe(res => {
+        let result = Object.values(JSON.parse(JSON.stringify(res)));
+        result.forEach((element: any) => {
+          var app = new Flight(element);
+          this.searchedFlights.push(app);
+        });
+        
+        this.dataSource.data = this.searchedFlights;
+        console.log(this.searchedFlights);
+  
+      })
+    }
+}
+    
   
 
-}
+

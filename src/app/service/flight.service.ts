@@ -32,5 +32,13 @@ export class FlightService {
   updateFlight(flight: any): Observable<any> {
     return this.http.put<any>(this.apiHost + 'api/flight/' + flight.id, flight, {headers: this.headers});
   }
+
+  getAllFlightBySearch(searchDate: Date, searchDeparture: string, searchDestination: string, searchPassinger: number): Observable<any> {
+    return this.http.get<Flight[]>(this.apiHost + 'api/flight/' + searchDate + '/' + searchDeparture + '/' 
+    + searchDestination + '/' + searchPassinger , {headers: this.headers});
+    }
+
   
 }
+
+
